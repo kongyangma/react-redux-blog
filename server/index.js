@@ -8,11 +8,13 @@ const router = require('./router');
 const mongoose = require('mongoose');
 // const cors = require('cors');  // we don't need it anymore, because we use proxy server instead
 
-const db = 'mongodb+srv://User:mky!0917.Hero@cluster0.01hrx.mongodb.net/react-redux-blog?retryWrites=true&w=majority';
+// This is incomplete, since User, Password and dbname are not replaced with the real ones
+// const db = 'mongodb+srv://User:Password@cluster0.01hrx.mongodb.net/<dbname>?retryWrites=true&w=majority';
 
-// DB Setup (connect mongoose and instance of mongodb)
-// This is to connect remote mongodb database
-// Listen to connection status
+// This is local database
+const db = 'mongodb://localhost:27017/blog';
+
+// This is to connect local database
 mongoose
     .connect(db, { 
         useUnifiedTopology: true
@@ -20,8 +22,18 @@ mongoose
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err));
 
-// This is to connect local database
-// mongoose.connect('mongodb://localhost:27017/blog');
+// DB Setup (connect mongoose and instance of mongodb)
+// This is to connect remote mongodb database
+// Listen to connection status
+/*
+mongoose
+    .connect(db, { 
+        useUnifiedTopology: true
+      })
+    .then(() => console.log('MongoDB connected...'))
+    .catch(err => console.log(err));
+*/
+
 
 // App Setup (morgan and body-parser are middleware in Express)
 app.use(morgan('combined'));  // middleware for logging

@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
+import './css/header.css';
 
 class Header extends Component {
 
@@ -22,7 +23,7 @@ class Header extends Component {
     if (this.props.authenticated) {
       // show a dropdown menu for authenticated user
       return (
-        <div className="navbar-nav nav-item dropdown ml-auto">
+        <div className="navbar-nav nav-item dropdown ml-auto header-position">
           <a className="nav-link dropdown-toggle" href="http://example.com" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{this.props.username}</a>
           <div className="dropdown-menu" aria-labelledby="dropdown02">
             <Link className="dropdown-item" to="/my_posts">Your Posts</Link>
@@ -34,7 +35,7 @@ class Header extends Component {
         </div>
       );
     } else {
-      // show a linke to sign in or sign up
+      // show a link to sign in or sign up
       return (
         <ul className="navbar-nav">
           <li className="nav-item" key={1}>
